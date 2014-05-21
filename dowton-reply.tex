@@ -1,0 +1,97 @@
+\documentclass[12pt]{article}
+\usepackage[round]{natbib}
+%\usepackage[T1]{fontenc}% change to nicer font
+%\usepackage[bitstream-charter]{mathdesign}% change to nicer font
+\usepackage[onehalfspacing]{setspace} % set spacing to one and a half
+\usepackage{graphicx}%for graphics
+%to add in test referencing of figs
+\PassOptionsToPackage{hyphens,spaces,obeyspaces}{url}\usepackage{hyperref}%to avoid clashes between url and hyperref
+\hypersetup{breaklinks=true,bookmarks=true,colorlinks=true,urlcolor=blue,linkcolor=black,citecolor=black,pdfauthor={Rupert A.\ Collins},pdftitle={Dowton et al. reply}}
+
+% The following parameters seem to provide a reasonable page setup.
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\footskip 1.0cm
+
+%adds new float type
+\usepackage[labelsep=space,labelfont=bf,singlelinecheck=false]{caption}
+\usepackage{float}
+\DeclareCaptionType[fileext=flt]{Supplementary Data}
+
+
+%The next command sets up an environment for the abstract to your paper.
+\newenvironment{sciabstract}{%
+\begin{quote} }
+{\end{quote}}
+
+% Include your paper's title here
+\title{\bf Known knowns, known unknowns, unknown unknowns, and unknown knowns in DNA barcoding: A reply to Dowton et al.} 
+
+
+% Place the author information here.  Please hand-code the contact
+\author
+{Rupert A.\ Collins$^{1}$\\
+\\
+\normalsize{$^{1}$Laborat\'orio de Evolu\c c\~ao e Gen\'etica Animal,}\\
+\normalsize{Departamento de Biologia, Universidade Federal do Amazonas,}\\
+\normalsize{Av.\ Rodrigo Ot\'avio, Manaus, Amazonas, Brasil}\\
+\\
+\normalsize{$^\ast$To whom correspondence should be addressed; E-mail:  rupertcollins@gmail.com}
+}
+
+% Include the date command, but leave its argument blank.
+\date{}
+
+%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%
+
+
+\begin{document} 
+% Make the title.
+\maketitle 
+
+% Place your abstract within the special {sciabstract} environment.
+\begin{sciabstract}
+  \subsection*{Abstract}
+
+
+\end{sciabstract}
+
+
+\section*{Introduction}
+
+
+\section*{Materials and methods}
+
+
+\section*{Results}
+
+
+\section*{Discussion}
+
+\section*{Acknowledgements}
+
+\bibliography{dowton_reply}
+
+\bibliographystyle{apa-good_sysbio}
+
+%%%% start the figs and supplementary data
+\clearpage
+\newpage
+
+%suppl 1
+\begin{Supplementary Data}
+\caption{Bash shell script. }
+\label{suppl:bash}
+\end{Supplementary Data}
+
+%suppl 2
+\begin{Supplementary Data}
+\caption{R script. }
+\label{suppl:R}
+\end{Supplementary Data}
+
+
+\end{document}
