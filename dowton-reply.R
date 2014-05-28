@@ -1,24 +1,24 @@
-# R script to repeat analyses from Collins & Cruickshank: "Known knowns, known unknowns, unknown unknowns and unknown knowns in DNA barcoding: A reply to Dowton et al."
-# Date 27/05/14
+## R script to repeat analyses from Collins & Cruickshank: "Known knowns, known unknowns, unknown unknowns and unknown knowns in DNA barcoding: A reply to Dowton et al."
+## Date 27/05/14
 
 # load libraries
-require("ape")# ?ape
-require("spider")# ?spider
-require("phangorn")# ?phangorn
+require("ape")# v3.1-1
+require("spider")# v1.3-0
+require("phangorn")# v1.99-7
 
-# read the data is nexus format
-dat <- read.nexus.data(file="/home/rupert/LaTeX/dowton-reply/COI_CAD_SystBiol.nex")
+# read the data is nexus format from Dryad
+dat <- read.nexus.data(file="http://datadryad.org/bitstream/handle/10255/dryad.53505/COI_CAD_SystBiol.nex?sequence=1")
 
 #split up the data into COI and CAD
 datbin <- as.matrix(as.DNAbin(dat))#?ape
 coi <- datbin[1:length(labels(datbin)),1:657]
 cad <- datbin[1:length(labels(datbin)),658:1434]
 
-# make a quick NJ tree
-tr <- midpoint(ladderize(nj(dist.dna(coi, model="raw", pairwise.deletion=TRUE))))
-pdf(file="coi.pdf", width=6, height=40)
-plot(tr, no.margin=TRUE, cex=0.6,  edge.width=1, label.offset=0.0005, font=1)
-dev.off()
+# to make a quick NJ tree
+#tr <- midpoint(ladderize(nj(dist.dna(coi, model="raw", pairwise.deletion=TRUE))))
+#pdf(file="coi.pdf", width=6, height=40)
+#plot(tr, no.margin=TRUE, cex=0.6,  edge.width=1, label.offset=0.0005, font=1)
+#dev.off()
 
 # re-label with species vector and rename outgroups
 sspv <- sapply(strsplit(labels(coi), "KM[0-9][0-9][0-9]|JW[0-9][0-9][0-9]|JW[0-9][0-9][0-9]v1|JW[0-9][0-9][0-9]v2|JW[0-9][0-9]v2"), function(xx) paste(xx[2], sep=""))
@@ -39,6 +39,7 @@ print(optMat)
 # plot
 barplot(t(optMat)[4:5,], names.arg=optMat[,1], xlab="Threshold values", ylab="Cumulative error")
 legend(x = 2.5, y = 400, legend = c("False positives", "False negatives"), fill = c("grey75", "grey25"))
+# optimum threshold is between 0.017 and 0.025
 
 # Categorisation of these error rates follows Meyer and Paulay [82]: 
 # "False positives are the identification of spurious novel taxa (splitting) within a species whose intraspecific variation extends deeper than the threshold value; 
@@ -49,8 +50,8 @@ legend(x = 2.5, y = 400, legend = c("False positives", "False negatives"), fill 
 # False positive was returned when there were no matches within the threshold value although conspecific species were available in the dataset.
 
 
-# estimation of local minima threshold
-smi <- localMinima(smat)# local minima says 0.0213 (= 2.13%) is optimum
+# accurate estimation of local minima threshold
+smi <- localMinima(smat)# local minima says 0.0213 (= 2.13%) is optimum. This lies within the range estimated by 'threshOpt' above.
 
 # compare the error rates for the optimum threshold (2.13%) and the arbitrary threshold (4%)
 to <- threshOpt(smat, sspv, thresh = 0.0213)
@@ -160,3 +161,14 @@ cbc[which(labels(ccoi) == "KM311omi")]
 
 #check new result for KM260spg
 cbc[which(labels(ccoi) == "KM260spg")]
+
+
+
+## ANALYSIS of CAD
+
+o <- (1-(1/405))*100
+round(o, digits=1)
+
+vc$max_in_dist[vc$taxon_label == "KM673aus"] *100
+
+?spider
