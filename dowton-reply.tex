@@ -4,6 +4,7 @@
 %\usepackage[bitstream-charter]{mathdesign}% change to nicer font
 \usepackage[onehalfspacing]{setspace} % set spacing to one and a half
 \usepackage{graphicx}%for graphics
+\usepackage{lineno}
 %to add in test referencing of figs
 \PassOptionsToPackage{hyphens,spaces,obeyspaces}{url}\usepackage{hyperref}%to avoid clashes between url and hyperref
 \hypersetup{breaklinks=true,bookmarks=true,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue,pdfauthor={Rupert A.\ Collins},pdftitle={Dowton et al. reply}}
@@ -36,7 +37,7 @@
 % Place the author information here.  Please hand-code the contact
 \author
 {Rupert A.\ Collins$^{1*}$\\
-Robert H. Cruickshank$^{2}$\\
+Robert H.\ Cruickshank$^{2}$\\
 \\
 \normalsize{$^{1}$Laborat\'orio de Evolu\c c\~ao e Gen\'etica Animal,}\\
 \normalsize{Departamento de Biologia, Universidade Federal do Amazonas,}\\
@@ -57,6 +58,7 @@ Robert H. Cruickshank$^{2}$\\
 \begin{document} 
 % Make the title.
 \maketitle 
+\linenumbers
 
 In a recent commentary, \citet{Dowton2014} propose a framework for ``next-generation'' DNA barcoding, whereby multi-locus datasets are coupled with coalescent-based species delimitation methods to make specimen identifications. They claim single-locus DNA barcoding is outdated, and a multilocus approach superior, with their assertions supported by an analysis of 33 species of \emph{Sarcophaga} flesh flies. Here, we reanalyse their data and show that a standard DNA barcode analysis is in fact capable of identifying 99.8\% (all but one) of their \emph{Sarcophaga} specimens, and that their conclusions misrepresent their data. We also discuss the benefits and drawbacks to their vision of ``next-gen'' barcoding.
 
@@ -80,7 +82,7 @@ Regardless, an optimised threshold while superior to an arbitrary one such as 4\
 
 An MSC approach does have the potential to improve on current DNA barcoding practices in the case of mixed clusters of haplotypes due to non-monophyly. However, before investing resources, it is worth estimating how prevalent these processes/patterns really are. A recent study \citep{Ross2014} re-assessed the findings of an influential paper \citep{Funk2003} stating that species-level mitochondrial paraphyly occurs in roughly 23\% of animal species; he reported lower, but similar levels (19\%) based on a larger dataset. As to the causes of this non-monophyly, a review of bird data \citep{McKay2010} reported 14.3\% of bird species as non-monophyletic, with 6\% non-monophyletic due to either introgression or incomplete lineage sorting, and 8\% due to uncertain taxonomy. Misidentified specimens have also been cited as a potential problem particularly in DNA barcode data, and especially for taxa where multiple workers are submitting data for the same taxa independently \citep{Collins2013}. 
 
-So, in which situations would the MSC be superior? As stated previously, the MSC can be applied to robustly delimit species boundaries, but in the absence of integrative character data it is unlikely that these methods will be successful in completely resolving cases of uncertain taxonomy, due to the unavailability of node-based names derived from these kinds of analyses \citep{Bauer2010}. Likewise, misidentified voucher specimens are in most cases just as likely to be detected with single locus markers as with multiple \citep{Becker2011,Ko2013}. On the other hand, in the cases of introgression and incomplete lineage sorting, an MSC approach would in theory be superior to single locus barcoding. However, including a single nuclear gene as carried out by \citeauthor{Dowton2014}, is unlikely to provide much additional information as the power of nuclear loci generally lies in their multiplicity \citep{Edwards2009}. This is confirmed by our analysis of \citeauthor{Dowton2014}'s CAD data (Supplementary Material); only 67\% of the total species were monophyletic, and the BCM identification success of their 33 test species was just 51\% for this gene. 
+So, in which of these situations would the MSC be superior? As stated previously, the MSC can be applied to robustly delimit species boundaries, but in the absence of integrative character data it is unlikely to be successful in completely resolving cases of uncertain taxonomy, due to the unavailability of node-based names derived from these kinds of analyses \citep{Bauer2010}. Likewise, misidentified voucher specimens are in most cases just as likely to be detected with single locus markers as with multiple \citep{Becker2011,Ko2013}. On the other hand, in the cases of introgression and incomplete lineage sorting, an MSC approach would in theory be superior to single locus barcoding. However, including a single nuclear gene as carried out by \citeauthor{Dowton2014}, is unlikely to provide much additional information as the power of nuclear loci generally lies in their multiplicity \citep{Edwards2009}. This is confirmed by our analysis of \citeauthor{Dowton2014}'s CAD data (Supplementary Material); only 67\% of the total species were monophyletic, and the BCM identification success of their 33 test species was just 51\% for this gene. 
 
 \section*{Practical Issues}
 
@@ -108,22 +110,5 @@ This work was supported by a CNPq Ci\^encia sem Fronteiras fellowship (400813/20
 \bibliography{dowton_reply}%need to manually add doi: shokralla, bauer
 
 \bibliographystyle{apa-good_sysbio}
-
-%%%%% start the figs and supplementary data
-%\clearpage
-%\newpage
-%
-%%suppl 1
-%\begin{Supplementary Data}
-%\caption{Bash shell script. }
-%\label{suppl:bash}
-%\end{Supplementary Data}
-%
-%%suppl 2
-%\begin{Supplementary Data}
-%\caption{R script. }
-%\label{suppl:R}
-%\end{Supplementary Data}
-
 
 \end{document}
